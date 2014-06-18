@@ -2,17 +2,22 @@ package game;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 
 public class Nave {
 	private int x,y;
 	private int dx,dy;
+	private int altura,largura;
 	private Image imagem;
+	private List<Missel>misseis;
 	
 	public Nave(){
 		ImageIcon naveImg = new ImageIcon("src\\res\\nave.gif");
 		imagem = naveImg.getImage();
+		misseis	= new ArrayList<Missel>();
 		this.x = 100;
 		this.y = 100;
 	}
@@ -38,6 +43,11 @@ public class Nave {
 		}
 	}
 	
+	
+	public List<Missel> getMisseis() {
+		return misseis;
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -50,12 +60,19 @@ public class Nave {
 		return imagem;
 	}
 	
+	public void atirar(){
+		this.misseis.add(new Missel(x+largura, y+altura/2));
+	}
+	
 	public void keyPressed(KeyEvent tecla){
 		
 		int tecla_cod = tecla.getKeyCode();
 		
 		switch(tecla_cod){
 			
+			case(KeyEvent.VK_SPACE):atirar();
+			break;
+		
 			case(KeyEvent.VK_UP):dy = -1;
 			break;
 			
