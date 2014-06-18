@@ -17,6 +17,8 @@ public class Nave {
 	public Nave(){
 		ImageIcon naveImg = new ImageIcon("src\\res\\nave.gif");
 		imagem = naveImg.getImage();
+		altura = imagem.getHeight(null);
+		largura = imagem.getWidth(null);
 		misseis	= new ArrayList<Missel>();
 		this.x = 100;
 		this.y = 100;

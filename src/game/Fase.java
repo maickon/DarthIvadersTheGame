@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -30,14 +31,33 @@ public class Fase extends JPanel implements ActionListener{
 	}
 
 	public void paint(Graphics g){
+		
 		Graphics2D graficos = (Graphics2D) g;
 		graficos.drawImage(fundoImg, 0, 0, null);
 		graficos.drawImage(nave.getImagem(), nave.getX(), nave.getY(), this);
+		
+		List<Missel> misseis = nave.getMisseis();
+		for(int i=0; i<misseis.size(); i++){
+			Missel m = (Missel) misseis.get(i); 
+			graficos.drawImage(m.getImagem(), m.getX(), m.getY(), this);
+		}
+		
 		g.dispose();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
+		List<Missel> misseis = nave.getMisseis(); 
+		for(int i=0; i<misseis.size(); i++){
+			Missel m = (Missel) misseis.get(i); 
+			if(m.isVisivel()){
+				m.mover();
+			}else{
+				misseis.remove(i);
+			}
+		}
+		
 		nave.mover();
 		repaint(); 
 	}
