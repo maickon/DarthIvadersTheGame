@@ -6,24 +6,24 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-public class Missel {
+public class Inimigos {
 	
 	private int x,y;
-	private int altura,largura;
+	private int largura,altura;
 	private Image imagem;
 	private boolean isVisivel;
 	
 	private static final int LARGURA_TELA = 500;
 	private static final int VELOCIDADE = 2;
 	
-	public Missel(int x, int y){
+	public Inimigos(int x, int y){
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referenciaImg = new ImageIcon("src\\res\\missel.png");
+		ImageIcon referenciaImg = new ImageIcon("src\\res\\inimigo_1.png");
 		imagem = referenciaImg.getImage();
-		altura = imagem.getHeight(null);
-		largura = imagem.getWidth(null);
+		this.largura = imagem.getWidth(null);
+		this.altura = imagem.getHeight(null);
 		isVisivel = true;
 	}
 	
@@ -53,14 +53,14 @@ public class Missel {
 	}
 
 	public void mover(){
-		this.x += VELOCIDADE;
-		if(this.x > LARGURA_TELA){
-			isVisivel = false;
+		if(this.x < 0){
+			this.x = LARGURA_TELA;
+		}else{
+			this.x -= VELOCIDADE;
 		}
 	}
 	
 	public Rectangle getBounds(){
 		return new Rectangle(x, y, largura, altura);
 	}
-
 }

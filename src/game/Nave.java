@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,10 @@ public class Nave {
 	
 	public void atirar(){
 		this.misseis.add(new Missel(x+largura, y+altura/2));
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(x, y, largura, altura);
 	}
 	
 	public void keyPressed(KeyEvent tecla){
