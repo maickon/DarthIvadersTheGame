@@ -13,6 +13,7 @@ public class Nave {
 	private int dx,dy;
 	private int altura,largura;
 	private Image imagem;
+	private boolean isVisivel;
 	private List<Missel>misseis;
 	
 	public Nave(){
@@ -47,6 +48,14 @@ public class Nave {
 	}
 	
 	
+	public boolean isVisivel() {
+		return isVisivel;
+	}
+
+	public void setVisivel(boolean isVisivel) {
+		this.isVisivel = isVisivel;
+	}
+
 	public List<Missel> getMisseis() {
 		return misseis;
 	}
