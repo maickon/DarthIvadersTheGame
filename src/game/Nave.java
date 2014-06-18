@@ -20,6 +20,22 @@ public class Nave {
 	public void mover(){
 		x += dx;
 		y += dy;
+		
+		if(this.x < 1){
+			x = 1;
+		}
+		
+		if(this.x > 462){
+			x = 462;
+		}
+		
+		if(this.y < 1){
+			y = 1;
+		}
+		
+		if(this.y > 340){
+			y = 340;
+		}
 	}
 	
 	public int getX() {
