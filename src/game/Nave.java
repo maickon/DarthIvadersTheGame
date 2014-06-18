@@ -11,7 +11,7 @@ public class Nave {
 	private Image imagem;
 	
 	public Nave(){
-		ImageIcon naveImg = new ImageIcon("res\\nave.gif");
+		ImageIcon naveImg = new ImageIcon("src\\res\\nave.gif");
 		imagem = naveImg.getImage();
 		this.x = 100;
 		this.y = 100;
@@ -49,12 +49,12 @@ public class Nave {
 			case(KeyEvent.VK_LEFT):dx = -1;
 			break;
 			
-			case(KeyEvent.VK_RIGHT):dy = +1;
+			case(KeyEvent.VK_RIGHT):dx = +1;
 			break;
 		}
 	}
 	
-	public void KeyReleased(KeyEvent tecla){
+	public void keyReleased(KeyEvent tecla){
 		int tecla_cod = tecla.getKeyCode();
 		
 		switch(tecla_cod){
@@ -68,7 +68,7 @@ public class Nave {
 			case(KeyEvent.VK_LEFT):dx = 0;
 			break;
 			
-			case(KeyEvent.VK_RIGHT):dy = 0;
+			case(KeyEvent.VK_RIGHT):dx = 0;
 			break;
 		}
 	}

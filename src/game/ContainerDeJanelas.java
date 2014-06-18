@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 public class ContainerDeJanelas extends JFrame{
 	public ContainerDeJanelas(){
+		add(new Fase());
 		setTitle("Spacers");
 		setSize(500,400);
 		setResizable(false);
