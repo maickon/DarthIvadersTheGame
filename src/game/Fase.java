@@ -161,6 +161,12 @@ public class Fase extends JPanel implements ActionListener {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Auto-generated method stub
+			 
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				emJogo = true;
+				nave = new Nave();
+				inicializaInimigos();
+			}
 			nave.keyPressed(e);
 		}
 
