@@ -2,32 +2,30 @@ package game;
 
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 
 public class Inimigos {
-	
+
 	private int x,y;
 	private int largura,altura;
 	private Image imagem;
 	private boolean isVisivel;
-	
+
 	private static final int LARGURA_TELA = 500;
-	private static final int VELOCIDADE = 2;
-	
+	private static final int VELOCIDADE = 3;
+
 	public Inimigos(int x, int y){
 		this.x = x;
 		this.y = y;
-		
-		ImageIcon referenciaImg = new ImageIcon("src\\res\\inimigo_1.png");
+
+		ImageIcon referenciaImg = new ImageIcon("res\\inimigo_1.gif");
 		imagem = referenciaImg.getImage();
 		this.largura = imagem.getWidth(null);
 		this.altura = imagem.getHeight(null);
 		isVisivel = true;
 	}
-	
-	
+
+
 	public boolean isVisivel() {
 		return isVisivel;
 	}
@@ -59,7 +57,7 @@ public class Inimigos {
 			this.x -= VELOCIDADE;
 		}
 	}
-	
+
 	public Rectangle getBounds(){
 		return new Rectangle(x, y, largura, altura);
 	}

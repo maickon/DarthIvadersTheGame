@@ -17,7 +17,7 @@ public class Nave {
 	private List<Missel>misseis;
 	
 	public Nave(){
-		ImageIcon naveImg = new ImageIcon("src\\res\\nave.gif");
+		ImageIcon naveImg = new ImageIcon("res\\nave.gif");
 		imagem = naveImg.getImage();
 		altura = imagem.getHeight(null);
 		largura = imagem.getWidth(null);

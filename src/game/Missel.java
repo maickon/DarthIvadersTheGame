@@ -20,7 +20,7 @@ public class Missel {
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referenciaImg = new ImageIcon("src\\res\\missel.png");
+		ImageIcon referenciaImg = new ImageIcon("res\\missel.png");
 		imagem = referenciaImg.getImage();
 		altura = imagem.getHeight(null);
 		largura = imagem.getWidth(null);
