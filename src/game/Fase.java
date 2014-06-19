@@ -168,7 +168,7 @@ public class Fase extends JPanel implements ActionListener {
 				inicializaInimigos();
 			}
 			nave.keyPressed(e);
-		}
+		}	
 
 		@Override
 		public void keyReleased(KeyEvent e) {
