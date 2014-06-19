@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -21,7 +22,7 @@ public class Fase extends JPanel implements ActionListener {
 	private Image fundoImg;
 	private Nave nave;
 	private Timer tempo;
-	private boolean emJogo;
+	private int emJogo;
 	private List<Inimigos> inimigos;
 
 	private int[][] coordenadas = { 
@@ -44,7 +45,7 @@ public class Fase extends JPanel implements ActionListener {
 		fundoImg = referenciaImg.getImage();
 		nave = new Nave();
 		inicializaInimigos();
-		emJogo = true;
+		emJogo = 1;
 		
 		tempo = new Timer(7, this);
 		tempo.start();
@@ -64,24 +65,38 @@ public class Fase extends JPanel implements ActionListener {
 		Graphics2D graficos = (Graphics2D) g;
 		graficos.drawImage(fundoImg, 0, 0, null);
 
-		if(emJogo) {
-			graficos.drawImage(nave.getImagem(), nave.getX(), nave.getY(), this);
-			List<Missel> misseis = nave.getMisseis();
-			for (int i = 0; i < misseis.size(); i++) {
-				Missel m = (Missel) misseis.get(i);
-				graficos.drawImage(m.getImagem(), m.getX(), m.getY(), this);
-			}
-
-			for (int i = 0; i < inimigos.size(); i++) {
-				Inimigos in = inimigos.get(i);
-				graficos.drawImage(in.getImagem(), in.getX(), in.getY(), this);
-			}
+		switch(emJogo){
+			case 1:
+				graficos.drawImage(nave.getImagem(), nave.getX(), nave.getY(), this);
+				List<Missel> misseis = nave.getMisseis();
+				for (int i = 0; i < misseis.size(); i++) {
+					Missel m = (Missel) misseis.get(i);
+					graficos.drawImage(m.getImagem(), m.getX(), m.getY(), this);
+				}
+	
+				for (int i = 0; i < inimigos.size(); i++) {
+					Inimigos in = inimigos.get(i);
+					graficos.drawImage(in.getImagem(), in.getX(), in.getY(), this);
+				}
+				
+				graficos.setColor(Color.white);
+				graficos.drawString("INIMIGOS: "+inimigos.size(), 5, 15);
+			break;
 			
-			graficos.setColor(Color.white);
-			graficos.drawString("INIMIGOS: "+inimigos.size(), 5, 15);
-		}else{
-			ImageIcon gameOver = new ImageIcon("res\\darth_vader_game_over_3.jpg");
-			graficos.drawImage(gameOver.getImage(), 0, 0, null);
+			case 3:
+				ImageIcon gameInit = new ImageIcon("res\\darth_invaders.jpg");
+				graficos.drawImage(gameInit.getImage(), 0, 0, null);
+			break;
+			
+			case 2:
+				ImageIcon gameWin = new ImageIcon("res\\darth_vader_game_win.jpg");
+				graficos.drawImage(gameWin.getImage(), 0, 0, null);
+			break;
+			
+			case 0:
+				ImageIcon gameOver = new ImageIcon("res\\darth_vader_game_over_3.jpg");
+				graficos.drawImage(gameOver.getImage(), 0, 0, null);
+			break;
 		}
 		g.dispose();
 	}
@@ -90,7 +105,7 @@ public class Fase extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 
 		if (inimigos.size() == 0) {
-			emJogo = false;
+			emJogo = 2;
 		}
 		List<Missel> misseis = nave.getMisseis();
 		
@@ -131,7 +146,7 @@ public class Fase extends JPanel implements ActionListener {
 			if (formaNave.intersects(formaInimigo)) {
 				nave.setVisivel(false);
 				tempInimigo.setVisivel(false);
-				emJogo = false;
+				emJogo = 0;
 			}
 		}
 
@@ -163,7 +178,7 @@ public class Fase extends JPanel implements ActionListener {
 			// TODO Auto-generated method stub
 			 
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
-				emJogo = true;
+				emJogo = 1;
 				nave = new Nave();
 				inicializaInimigos();
 			}

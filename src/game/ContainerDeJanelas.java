@@ -1,8 +1,9 @@
 package game;
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -10,8 +11,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 
-
 public class ContainerDeJanelas extends JFrame{
+	
 	public ContainerDeJanelas(){
 		
 		JMenuBar menu_bar = new JMenuBar();
@@ -41,13 +42,12 @@ public class ContainerDeJanelas extends JFrame{
 		menu_bar.add(menu);
 		setJMenuBar(menu_bar);
 		
-		
 		add(new Fase());
-		setTitle("Darth Invaders");
-		setSize(500,420);
-		setResizable(false);
+		setTitle("Darth Ivaders");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500,420);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 	}
 	
