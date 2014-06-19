@@ -12,13 +12,13 @@ public class Inimigos {
 	private boolean isVisivel;
 
 	private static final int LARGURA_TELA = 500;
-	private static final int VELOCIDADE = 3;
+	private static final int VELOCIDADE = 1;
 
 	public Inimigos(int x, int y){
 		this.x = x;
 		this.y = y;
 
-		ImageIcon referenciaImg = new ImageIcon("res\\inimigo_1.gif");
+		ImageIcon referenciaImg = new ImageIcon("res\\inimigo_9.png");
 		imagem = referenciaImg.getImage();
 		this.largura = imagem.getWidth(null);
 		this.altura = imagem.getHeight(null);

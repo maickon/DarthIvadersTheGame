@@ -2,6 +2,7 @@ package game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -40,8 +41,9 @@ public class ContainerDeJanelas extends JFrame{
 		menu_bar.add(menu);
 		setJMenuBar(menu_bar);
 		
+		
 		add(new Fase());
-		setTitle("Spacers");
+		setTitle("Darth Invaders");
 		setSize(500,420);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

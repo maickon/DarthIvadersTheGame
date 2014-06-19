@@ -46,7 +46,7 @@ public class Fase extends JPanel implements ActionListener {
 		inicializaInimigos();
 		emJogo = true;
 		
-		tempo = new Timer(5, this);
+		tempo = new Timer(7, this);
 		tempo.start();
 	}
 
@@ -80,7 +80,7 @@ public class Fase extends JPanel implements ActionListener {
 			graficos.setColor(Color.white);
 			graficos.drawString("INIMIGOS: "+inimigos.size(), 5, 15);
 		}else{
-			ImageIcon gameOver = new ImageIcon("src\\res\\game_over.jpg");
+			ImageIcon gameOver = new ImageIcon("res\\darth_vader_game_over_3.jpg");
 			graficos.drawImage(gameOver.getImage(), 0, 0, null);
 		}
 		g.dispose();
